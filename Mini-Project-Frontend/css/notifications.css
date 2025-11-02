@@ -1,0 +1,133 @@
+/* --- Global & Mobile-First Styles --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0F0F23;
+    color: #FFFFFF;
+    padding-bottom: 80px; 
+}
+
+/* ---------------------------------- */
+/* 1. Header (Top Bar) - (เหมือน home.css) */
+/* ---------------------------------- */
+.main-header { background-color: #4A148C; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.logo-img { height: 35px; width: 35px; background-color: #fff; border-radius: 50%; }
+.logo-text { font-size: 1.2rem; font-weight: 600; color: #FFFFFF; }
+.header-icons { display: flex; gap: 20px; font-size: 1.3rem; color: #FFFFFF; }
+.header-icons i { cursor: pointer; }
+
+/* ---------------------------------- */
+/* 2. Content Feed (Main Area) */
+/* ---------------------------------- */
+.content-feed {
+    padding: 10px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 5px 20px 5px;
+}
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    text-decoration: none;
+    color: #FFF;
+    border-bottom: 1px solid #2A1B4A;
+}
+.notification-item:hover {
+    background-color: #2A1B4A;
+}
+
+.notification-item.special-noti {
+    background-color: #2A1B4A;
+    border-radius: 10px;
+}
+
+.noti-profile-pic-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.noti-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.noti-icon-overlay {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    border: 2px solid #0F0F23;
+}
+.comment-icon {
+    background-color: #2ECC71; /* สีเขียว */
+    color: #FFF;
+}
+
+.noti-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.noti-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #E0E0E0;
+}
+.noti-text strong {
+    color: #FFF;
+    font-weight: 600;
+}
+.level-tag {
+    color: #E67E22; /* สีส้ม */
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.noti-time {
+    font-size: 0.8rem;
+    color: #B0AEC0;
+    margin-top: 5px;
+}
+
+/* ---------------------------------- */
+/* 3. Bottom Navigation - (เหมือน home.css) */
+/* ---------------------------------- */
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background-color: #4A148C; display: flex; justify-content: space-around; align-items: center; padding: 5px 0 10px 0; z-index: 100; }
+.nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #B0AEC0; font-size: 0.7rem; gap: 4px; }
+.nav-item i { font-size: 1.3rem; }
+.nav-item.active { color: #3498DB; } /* สีไอคอนที่เลือก */
+.nav-post-btn { background: linear-gradient(135deg, #3498DB, #8E44AD); width: 50px; height: 50px; border-radius: 50%; justify-content: center; transform: translateY(-40%); color: #FFFFFF; border: 4px solid #0F0F23; }
+.nav-post-btn i { font-size: 1.5rem; }
+.nav-post-btn .nav-text { display: none; }
+
+/* ------------------------------------------- */
+/* --- Media Query for PC (Desktop) screen --- */
+/* ------------------------------------------- */
+@media (min-width: 768px) {
+    body { background-color: #000000; padding-bottom: 0; }
+    .main-header, .content-feed { max-width: 600px; margin-left: auto; margin-right: auto; }
+    .main-header { border-radius: 0 0 15px 15px; }
+    .content-feed { padding-top: 20px; }
+    .bottom-nav { display: none; }
+}
