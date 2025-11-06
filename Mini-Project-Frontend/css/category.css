@@ -1,0 +1,315 @@
+/* --- Global & Mobile-First Styles (iPhone) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0F0F23; 
+    color: #FFFFFF;
+    padding-bottom: 80px; /* (กัน Footer ทับบน Mobile) */
+}
+
+/* ---------------------------------- */
+/* 1. Header (Top Bar) (ใช้ซ้ำ) */
+/* ---------------------------------- */
+.main-header {
+    background-color: #4A148C;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-img {
+    height: 35px;
+    width: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header-icons a.header-link {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* ---------------------------------- */
+/* 2. Content Feed (ปรับปรุง) */
+/* ---------------------------------- */
+.content-feed {
+    padding: 0; 
+}
+
+/* ---------------------------------- */
+/* (ของใหม่) 2.1 Shop Toolbar */
+/* ---------------------------------- */
+.shop-toolbar {
+    display: flex;
+    flex-wrap: wrap; /* ทำให้ปุ่ม Sort ตกบรรทัดใหม่ในจอมือถือเล็กๆ */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    gap: 15px;
+}
+.shop-title {
+    color: #FFF;
+    font-size: 1.8rem;
+    margin: 0;
+}
+.results-count {
+    color: #B0AEC0;
+    font-size: 0.9rem;
+}
+.sort-dropdown {
+    background-color: #2A1B4A;
+    color: #FFF;
+    border: 1px solid #412A6C;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------- */
+/* 2.2 Product Grid & Card (ใช้ซ้ำ) */
+/* ---------------------------------- */
+.product-section {
+    padding: 0 15px 25px 15px;
+}
+
+/* (เราไม่ต้องการ .section-title ในหน้านี้) */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+}
+
+.product-card {
+    background-color: #2A1B4A;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-image-container {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    background-color: #412A6C;
+    position: relative;
+    overflow: hidden;
+}
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #FFF;
+    border-radius: 5px;
+    z-index: 5;
+}
+.product-badge.discount { background-color: #E74C3C; }
+.product-badge.sold-out { background-color: #7F8C8D; }
+
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    color: #4A148C;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.2s ease;
+}
+.wishlist-btn:hover {
+    background-color: #FFFFFF;
+    color: #E74C3C;
+}
+.wishlist-btn.active {
+    background-color: #E74C3C;
+    color: #FFFFFF;
+}
+.wishlist-btn.active:hover {
+    background-color: #c0392b;
+}
+
+.product-info {
+    padding: 12px;
+    flex-grow: 1;
+}
+
+.product-name {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.7em;
+    line-height: 1.35em;
+}
+
+.product-price { margin-top: 8px; }
+.sale-price {
+    color: #34D399;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 8px;
+}
+.original-price {
+    color: #B0AEC0;
+    font-size: 0.9rem;
+    text-decoration: line-through;
+}
+
+/* ---------------------------------- */
+/* 3. Footer (ส่วนท้ายเว็บ) (ใช้ซ้ำ) */
+/* ---------------------------------- */
+.main-footer {
+    background-color: #3498DB; /* สีน้ำเงิน */
+    color: #FFFFFF;
+    padding: 40px 15px 0 15px;
+    margin-top: 30px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+.footer-link {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+.footer-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+.social-link {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #5DADE2;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #E0E0E0;
+}
+
+/* ------------------------------------------- */
+/* --- Media Query for PC (Desktop) screen --- */
+/* ------------------------------------------- */
+@media (min-width: 768px) {
+    body {
+        background-color: #000000;
+        padding-bottom: 0;
+    }
+
+    .main-header {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .content-feed {
+        max-width: 900px; /* ขยายความกว้างสำหรับ E-commerce */
+        margin: 20px auto 0 auto;
+        padding: 0;
+        background-color: #0F0F23;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .shop-toolbar {
+        padding: 25px 25px 20px 25px;
+    }
+    
+    .product-section {
+        padding: 0 25px 25px 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+    
+    .main-footer {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .footer-copyright {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* ซ่อน Bottom Nav บน PC (เราไม่มีในหน้านี้อยู่แล้ว) */
+    .bottom-nav { display: none; }
+}

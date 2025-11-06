@@ -1,0 +1,636 @@
+/* --- Global & Mobile-First Styles (iPhone) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* สีพื้นหลังของ Feed */
+    background-color: #0F0F23; 
+    color: #FFFFFF;
+    /* เพิ่ม padding ด้านล่างให้เนื้อหาไม่โดนแถบ nav บัง */
+    padding-bottom: 80px; 
+}
+
+/* ---------------------------------- */
+/* 1. Header (Top Bar) */
+/* ---------------------------------- */
+.main-header {
+    background-color: #4A148C; /* สีม่วงเข้ม */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* ทำให้ Header อยู่ด้านบนสุดเสมอ */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 35px;
+    width: 35px;
+    background-color: #fff; /* สีขาวชั่วคราว */
+    border-radius: 50%;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem;
+    color: #FFFFFF;
+}
+
+.header-icons i {
+    cursor: pointer;
+}
+
+/* ---------------------------------- */
+/* 2. Content Feed (Main Area) */
+/* ---------------------------------- */
+.content-feed {
+    padding: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #555; /* สีชั่วคราว */
+}
+
+
+.tag-thai {
+    background-color: #3498DB; /* สีฟ้า */
+    color: #FFFFFF;
+}
+.tag-boardgame {
+    background-color: #2ECC71; /* สีเขียว */
+    color: #FFFFFF;
+}
+
+/* (CSS ที่เพิ่มมาใหม่) */
+.tag-event {
+    background-color: #F39C12; /* สีส้ม */
+    color: #FFFFFF;
+}
+
+.stats-likes {
+    color: #F1C40F; /* สีเหลืองดาว */
+    font-weight: 600;
+}
+.stats-likes i {
+    margin-right: 5px;
+}
+
+
+.action-btn {
+    background: none;
+    border: none;
+    color: #B0AEC0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+    flex-grow: 1; /* ทำให้ปุ่มขยายเท่ากัน */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.action-btn:hover {
+    background-color: #412A6C;
+}
+.share-btn {
+    flex-grow: 0; /* ปุ่มแชร์ไม่ขยาย */
+}
+
+/* ---------------------------------- */
+/* 3. Bottom Navigation */
+/* ---------------------------------- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #4A148C; /* สีเดียวกับ Header */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0 10px 0; /* (10px padding-bottom สำหรับ safe area ของ iPhone) */
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #B0AEC0; /* สีไอคอนปกติ */
+    font-size: 0.7rem;
+    gap: 4px;
+}
+
+.nav-item i {
+    font-size: 1.3rem;
+}
+
+.nav-item.active {
+    color: #3498DB; /* สีไอคอนที่เลือก */
+}
+
+/* ปุ่ม Post ตรงกลาง */
+.nav-post-btn {
+    background: linear-gradient(135deg, #3498DB, #8E44AD); /* สี Gradient ฟ้าไปม่วง */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    /* ดึงปุ่มขึ้นไปครึ่งนึง */
+    transform: translateY(-40%); 
+    color: #FFFFFF;
+    border: 4px solid #0F0F23; /* สร้างขอบโดยใช้สีพื้นหลัง */
+}
+.nav-post-btn i {
+    font-size: 1.5rem;
+}
+.nav-post-btn .nav-text {
+    display: none; /* ปุ่มกลางไม่มีข้อความ */
+}
+
+
+/* ------------------------------------------- */
+/* --- Media Query for PC (Desktop) screen --- */
+/* ------------------------------------------- */
+@media (min-width: 768px) {
+    
+    body {
+        /* เปลี่ยนสีพื้นหลังด้านนอกสุด */
+        background-color: #000000;
+        padding-bottom: 0; /* เอา padding ของ mobile ออก */
+    }
+
+    /* สร้าง Wrapper คลุมเนื้อหาให้อยู่ตรงกลาง */
+    .main-header,
+    .content-feed {
+        max-width: 600px; /* จำกัดความกว้างของ Feed */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main-header {
+        border-radius: 0 0 15px 15px;
+    }
+
+    .content-feed {
+        padding-top: 20px;
+    }
+    
+    /* ซ่อนแถบเมนูด้านล่างในโหมด PC */
+    .bottom-nav {
+        display: none;
+    }
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* ระยะห่างระหว่างไอคอน */
+}
+
+/* ทำให้ลิงก์ไอคอนเป็นสีขาวและขนาดเท่ากัน */
+.header-icons a.header-link {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    text-decoration: none; /* เอาขีดเส้นใต้ลิงก์ออก */
+}
+
+/* --- 2. Content Feed (ดีไซน์ E-commerce) --- */
+
+/* เราจะเอา padding 10px เก่าของ content-feed ออก */
+.content-feed {
+    padding: 0; 
+}
+
+/* --- Carousel Styles --- */
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* ซ่อนรูปที่ล้นออกไป */
+    position: relative;
+    background-color: #2A1B4A; /* สีพื้นหลังเผื่อรูปโหลดไม่ทัน */
+    
+    /* กำหนดอัตราส่วนจอ (16:9) */
+    aspect-ratio: 16 / 9; 
+    
+    /* จำกัดความสูงสูงสุดบนจอ PC (กันไม่ให้ใหญ่เกินไป) */
+    max-height: 450px; 
+    
+    margin-bottom: 25px; /* เว้นวรรคก่อนถึงส่วนถัดไป */
+}
+
+.carousel-slide {
+    display: flex;
+    height: 100%;
+    /* หัวใจของการสไลด์ (เราจะควบคุมด้วย JS) */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ทำให้รูปภาพเต็มกรอบ โดยไม่เสียสัดส่วน */
+    flex-shrink: 0; /* ป้องกันไม่ให้รูปหดตัว */
+}
+
+/* ปุ่ม Next / Prev */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev-btn { left: 15px; }
+.next-btn { right: 15px; }
+
+/* จุดไข่ปลา (Dots) */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid rgba(0,0,0,0.2);
+}
+
+.dot.active {
+    background-color: #FFFFFF;
+}
+
+/* --- 3. Category Banners --- */
+.category-nav {
+    display: flex;
+    justify-content: space-around; /* จัดให้อยู่กึ่งกลางและมีช่องไฟ */
+    gap: 10px; /* ระยะห่างระหว่างการ์ด */
+    padding: 0 15px 25px 15px; /* เว้นขอบซ้าย/ขวา และเว้นด้านล่าง */
+    
+    /* ทำให้เลื่อนแนวนอนได้ในจอมือถือ ถ้าหมวดหมู่เยอะเกิน */
+    overflow-x: auto;
+    
+    /* ซ่อน Scrollbar (ถ้ามี) */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+.category-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.category-card {
+    border-radius: 12px;
+    overflow: hidden; /* ทำให้ขอบมน */
+    position: relative;
+    text-decoration: none;
+    
+    /* กำหนดขนาดของการ์ดแต่ละใบ */
+    width: 150px; /* กว้าง 150px */
+    height: 100px; /* สูง 100px */
+    flex-shrink: 0; /* ป้องกันไม่ให้การ์ดหดตัว */
+    
+    transition: transform 0.2s ease-out;
+}
+.category-card:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อชี้ */
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* ทำให้รูปมืดลงเล็กน้อย */
+}
+
+.category-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* เพิ่มเงาให้ตัวหนังสือ */
+}
+
+/* --- 5. & 6. Product Grid & Card --- */
+.product-section {
+    padding: 0 15px 25px 15px; /* เว้นขอบซ้าย/ขวา และล่าง */
+}
+
+.section-title {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    /* ในจอมือถือ: แสดง 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; /* ระยะห่างระหว่างการ์ด */
+}
+
+.product-card {
+    background-color: #2A1B4A; /* สีพื้นหลังการ์ด */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative; /* สำหรับปุ่ม Wishlist */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    display: flex;
+    flex-direction: column; /* จัดเรียงแนวตั้ง */
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-image-container {
+    display: block;
+    width: 100%;
+    /* กำหนดอัตราส่วนรูป (1:1 สี่เหลี่ยมจัตุรัส) */
+    aspect-ratio: 1 / 1; 
+    background-color: #412A6C;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ป้าย Sold Out / ลดราคา */
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #FFF;
+    border-radius: 5px;
+    z-index: 5;
+}
+.product-badge.discount {
+    background-color: #E74C3C; /* สีแดง (ลดราคา) */
+}
+.product-badge.sold-out {
+    background-color: #7F8C8D; /* สีเทา (ของหมด) */
+}
+
+/* ปุ่ม Wishlist */
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    color: #4A148C; /* สีม่วง */
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.2s ease;
+}
+.wishlist-btn:hover {
+    background-color: #FFFFFF;
+    color: #E74C3C; /* สีแดงเวลากด */
+}
+/* (เราจะใช้ JS เปลี่ยนเป็น fas fa-heart เมื่อกด) */
+
+/* ส่วนข้อมูลสินค้า */
+.product-info {
+    padding: 12px;
+    flex-grow: 1; /* ทำให้ส่วนนี้ยืดเต็มพื้นที่ที่เหลือ */
+}
+
+.product-name {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    
+    /* จำกัดข้อความแค่ 2 บรรทัด */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.7em; /* (ความสูง 2 บรรทัดโดยประมาณ) */
+    line-height: 1.35em;
+}
+
+.product-price {
+    margin-top: 8px;
+}
+
+.sale-price {
+    color: #34D399; /* สีเขียวมิ้นท์ */
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.original-price {
+    color: #B0AEC0; /* สีเทา */
+    font-size: 0.9rem;
+    text-decoration: line-through; /* ขีดฆ่า */
+}
+
+
+/* --- Media Query for PC (ปรับปรุง) --- */
+@media (min-width: 768px) {
+    /* (โค้ด body, .main-header, .content-feed, .category-nav ฯลฯ ของเดิม) */
+    
+    .product-section {
+        padding: 0 25px 25px 25px; /* เพิ่ม padding ใน PC */
+    }
+
+    .product-grid {
+        /* ในจอ PC: แสดง 4 คอลัมน์ */
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+/* --- Media Query for PC (ปรับปรุง) --- */
+@media (min-width: 768px) {
+    /* (โค้ด body, .main-header, .bottom-nav ของเดิม) */
+    
+    /* ปรับปรุง .content-feed ให้รองรับดีไซน์ใหม่ */
+    .content-feed {
+        max-width: 800px; /* ขยายความกว้างสำหรับ E-commerce */
+        margin: 20px auto 0 auto;
+        padding: 0;
+        background-color: #0F0F23; /* ใส่สีพื้นหลังให้เนื้อหา */
+        border-radius: 15px;
+        overflow: hidden; /* ทำให้ Carousel ขอบมนไปด้วย */
+    }
+    
+    .carousel-container {
+        margin-bottom: 25px; /* ลบ margin-top ของ Carousel ออก */
+    }
+    
+    .category-nav {
+        padding: 0 25px 25px 25px; /* เพิ่ม padding ใน PC */
+        justify-content: center; /* จัดกลางใน PC */
+    }
+}
+
+/* --- 7. Footer (ส่วนท้ายเว็บ) --- */
+.main-footer {
+    background-color: #3498DB; /* สีน้ำเงิน (ตามตัวอย่าง) หรือใช้ #4A148C (สีม่วงเดิม) ก็ได้ */
+    color: #FFFFFF;
+    padding: 40px 15px 0 15px; /* เว้น padding ด้านบน/ข้าง */
+    margin-top: 30px; /* เว้นระยะห่างจาก Product Grid */
+}
+
+.footer-grid {
+    display: grid;
+    /* ในจอมือถือ: 2 คอลัมน์ */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* ระยะห่างระหว่างคอลัมน์ */
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.footer-link {
+    color: #E0E0E0; /* สีลิงก์ (เทาอ่อน) */
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+.footer-link:hover {
+    color: #FFFFFF; /* สว่างขึ้นเมื่อชี้ */
+    text-decoration: underline;
+}
+
+/* ไอคอน Social */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+/* แถบลิขสิทธิ์ */
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #5DADE2; /* เส้นคั่น (ใช้สีอ่อนกว่า) */
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #E0E0E0;
+}
+
+/* --- Media Query for PC (ปรับปรุง) --- */
+@media (min-width: 768px) {
+    /* (โค้ด body, .main-header, .content-feed, ฯลฯ ของเดิม) */
+    
+    .main-footer {
+        /* เราจะให้ Footer อยู่นอก .content-feed บน PC */
+        max-width: 100%; /* กว้างเต็มจอ */
+        margin-top: 40px;
+    }
+    
+    .footer-grid {
+        /* ในจอ PC: 4 คอลัมน์ */
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 900px; /* จำกัดความกว้างเนื้อหา Footer */
+        margin: 0 auto; /* จัดกลาง */
+        padding: 0 15px;
+    }
+    
+    .footer-copyright {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- CSS สำหรับปุ่ม Wishlist (Active State) --- */
+/* (เพิ่มโค้ดนี้ต่อท้ายไฟล์ css/home.css) */
+
+/* เมื่อปุ่มถูกกด (มีคลาส .active) */
+.wishlist-btn.active {
+    background-color: #E74C3C; /* เปลี่ยนพื้นหลังเป็นสีแดง */
+    color: #FFFFFF; /* เปลี่ยนไอคอนเป็นสีขาว */
+}
+
+/* เมื่อชี้ปุ่มที่ active */
+.wishlist-btn.active:hover {
+    background-color: #c0392b; /* สีแดงเข้มขึ้น */
+}

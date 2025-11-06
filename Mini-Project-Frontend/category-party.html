@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/category.css"> 
+    <title>หมวดหมู่: ปาร์ตี้</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="home.html" class="logo-container">
+            <img src="images/Logo_Board_Game_Club.jpg" alt="Boardgether Logo" class="logo-img">
+            <span class="logo-text">Boardgether</span>
+        </a>
+        <div class="header-icons">
+            <a href="search.html" class="header-link"><i class="fas fa-search"></i></a>
+            <a href="category-family.html" class="header-link"><i class="fas fa-shopping-cart"></i></a>
+            <a href="menu.html" class="header-link"><i class="fas fa-bars"></i></a>
+        </div>
+    </header>
+
+    <main class="content-feed">
+
+        <section class="shop-toolbar">
+            <div class="toolbar-left">
+                <h1 class="shop-title">เกมปาร์ตี้</h1>
+                <span class="results-count">Showing 1–16 of any results</span>
+            </div>
+            <div class="toolbar-right">
+                <select class="sort-dropdown">
+                    <option value="default">การเรียงลำดับ</option>
+                    <option value="popularity">เรียงตามความนิยม</option>
+                    <option value="price-low">เรียงตามราคา: น้อยไปมาก</option>
+                    <option value="price-high">เรียงตามราคา: มากไปน้อย</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="product-section">
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <a href="#" class="product-image-container">
+                        <img src="images/exploding kitten.webp" alt="Product Name 1">
+                        <span class="product-badge discount">-18%</span>
+                    </a>
+                    <div class="product-info">
+                        <a href="#" class="product-name">Exploding Kitten (TH) เหมียวระเบิด (ชื่อสมมติ)</a>
+                        <div class="product-price">
+                            <span class="sale-price">฿891.00</span>
+                            <span class="original-price">฿990.00</span>
+                        </div>
+                    </div>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                
+                <div class="product-card">
+                    <a href="#" class="product-image-container">
+                        <img src="images/Salem.png" alt="Product Name 2">
+                    </a>
+                    <div class="product-info">
+                        <a href="#" class="product-name">Salem 1692 (TH) ซาเลม 1692</a>
+                        <div class="product-price">
+                            <span class="sale-price">฿808.00</span>
+                        </div>
+                    </div>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+
+                <div class="product-card">
+                    <a href="#" class="product-image-container">
+                        <img src="images/I'mTheBoss.webp" alt="Product Name 3">
+                        <span class="product-badge sold-out">Sold Out</span>
+                    </a>
+                    <div class="product-info">
+                        <a href="#" class="product-name">I'm the Boss (TH) อย่าซ่ากับบอส</a>
+                        <div class="product-price">
+                            <span class="sale-price">฿1,950.00</span>
+                        </div>
+                    </div>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+
+                <div class="product-card">
+                    <a href="#" class="product-image-container">
+                        <img src="images/GoTown.png" alt="Product Name 4">
+                    </a>
+                    <div class="product-info">
+                        <a href="#" class="product-name">Go Town (TH) โกทาวน์</a>
+                        <div class="product-price">
+                            <span class="sale-price">฿383.00</span>
+                        </div>
+                    </div>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                
+        </section>
+        
+    </main> <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4 class="footer-heading">Boardgether</h4>
+                <a href="#" class="footer-link">เกี่ยวกับเรา</a>
+                <a href="#" class="footer-link">บริการของเรา</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">บริการลูกค้า</h4>
+                <a href="#" class="footer-link">ติดต่อเรา</a>
+                <a href="#" class="footer-link">วิธีการสั่งซื้อ</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">บทความ</h4>
+                <a href="#" class="footer-link">รีวิวบอร์ดเกม</a>
+                <a href="#" class="footer-link">บทความแนะนำ</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-heading">ติดตามเรา</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Boardgether. All right reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // --- Wishlist Button JavaScript ---
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const icon = button.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    button.classList.add('active');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    button.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
